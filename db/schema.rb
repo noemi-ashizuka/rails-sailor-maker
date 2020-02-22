@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_113050) do
+ActiveRecord::Schema.define(version: 2020_02_22_113913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,5 +36,31 @@ ActiveRecord::Schema.define(version: 2020_02_22_113050) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "powers", force: :cascade do |t|
+    t.string "name"
+    t.string "element"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sailor_powers", force: :cascade do |t|
+    t.bigint "sailor_id"
+    t.bigint "power_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["power_id"], name: "index_sailor_powers_on_power_id"
+    t.index ["sailor_id"], name: "index_sailor_powers_on_sailor_id"
+  end
+
+  create_table "sailors", force: :cascade do |t|
+    t.string "name"
+    t.string "battle_name"
+    t.string "planet"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "sailor_powers", "powers"
+  add_foreign_key "sailor_powers", "sailors"
 end
