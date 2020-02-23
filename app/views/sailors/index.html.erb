@@ -1,16 +1,14 @@
-<nav class="nav navbar-light">
-    <h1>Sailor Warriors List</h1>
-    <p><%= link_to 'Create a Sailor Warrior', new_sailor_path %></p>
-  <nav>
-  
 <div class="container">
   <div class="cards row">
     <% @sailors.each do |sailor| %>
+    
     <div class="col-md-12 col-lg-6">
+    <%= link_to sailor_path(sailor) do %>
       <div class="card-bg" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path sailor.photo.key, responsive: :true, width: 400, crop: :fit %>')">
-        <%= link_to sailor.battle_name, sailor_path(sailor), class: "card-bg-content" %>
+        <p class="card-bg-content"><%= sailor.battle_name %> </p>
       </div>
     </div>
+    <% end %>
         <% end %>
   </div>
 </div>

@@ -1,31 +1,47 @@
 
 <div class="container mt-3">
-  <div class="card mb-3" style="max-width: 900px;">
+  <div class="card card-sailor mb-3" style="max-width: 900px;">
     <div class="row no-gutters">
       <div class="col-md-6 col-lg-4">
-          <%= cl_image_tag @sailor.photo.key, height: 400, width: 300, crop: :fill, class: "Card-thumb Card-thumd--landscape pa4" %>
+          <%= cl_image_tag @sailor.photo.key, height: 400, width: 300, crop: :fill, radius: 20, class: "card-sailor-img ml-2" %>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="card-body">
-          <h1 class="card-title"><%= @sailor.battle_name %></h1>
-          <p class="card-text"><%= @sailor.planet %></p>
-          <p class="card-text"><%= @sailor.name %></p>
+          <h1 class="card-title card-sailor-title"><%= @sailor.battle_name %></h1>
+          <p class="card-text">Planet: <%= @sailor.planet %></p>
+          <p class="card-text">Name: <%= @sailor.name %></p>
+          <p class="card-sailor-title">Powers</p>
           <% @sailor.sailor_powers.each do |power| %>
-            <p> "<%= power.power.name %>" element: <%= power.power.element %></p>
+            <p> <span class="badge badge-pill badge-primary"><%= power.power.name %></span> <span class="badge badge-pill badge-info"><%= power.power.element %></span> <span><%= link_to sailor_power_path(power), method: "delete" do %>
+              <i class="fas fa-minus-circle card-sailor-title"></i></span>
+            </p>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div class="col-md-12 col-lg-4">
-        <div class="card-body">
-          <p class="card-text"><%= link_to 'Edit', edit_sailor_path %></h2>
-          <p class="card-text"><%= link_to 'Delete', sailor_path(@sailor), method: "delete" %></h2>
-          <p class="card-text"><%= link_to 'Add Power', new_sailor_sailor_power_path(@sailor) %></h2>
+        <div class="card-body mt-2">
+          <h3 class="card-sailor-text">Add powers</h3>
+          <p class="card-text"><%= render 'sailor_powers/form', sailor: @sailor, sailor_power: @sailor_power, class: "card-sailor-form" %></h2>
+          
+          <h3 class="card-text card-sailor-text mt-3"><%= link_to edit_sailor_path do %>
+          <i class="far fa-edit"></i> Edit Sailor
+          <% end %>
+          </h3>
+          <h3 class="card-text card-sailor-text"><%= link_to sailor_path(@sailor), method: "delete" do %>
+            <i class="fas fa-trash-alt"></i> Delete Sailor
+          <% end %>
+          </h3>
+         
         </div>
       </div>
     </div>
   </div>
     <div>
-      <%= link_to 'Back', sailors_path %>
+      <h3><%= link_to sailors_path do%>
+        <i class="far fa-moon"></i> Back
+      <% end %>
+      </h3>
     </div>
   
 </div>

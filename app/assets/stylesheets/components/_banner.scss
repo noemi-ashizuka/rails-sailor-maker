@@ -1,0 +1,18 @@
+.banner {
+  height: 500px;
+  color: white;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  font-size: 32px;
+  text-shadow: 1px 1px 1px rgba(36, 0, 192, 0.2);
+  padding: 24px;
+  padding-bottom: 48px;
+}
+
+.banner h1 {
+  font-weight: 700;
+  font-size: 48px;
+}

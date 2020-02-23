@@ -5,6 +5,7 @@ class SailorsController < ApplicationController
   end
 
   def show
+    @sailor_power = SailorPower.new
   end
 
   def new
