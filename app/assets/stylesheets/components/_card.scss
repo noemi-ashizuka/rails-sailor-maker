@@ -14,3 +14,17 @@
   font-size: 32px;
   font-weight: 700;
 }
+
+.card-bg a {
+  text-decoration: none;
+  
+}
+
+.card-bg a:hover {
+  color: $s-pink;
+  opacity: 0.8;
+}
+
+.card-bg-content {
+  color: white;
+}

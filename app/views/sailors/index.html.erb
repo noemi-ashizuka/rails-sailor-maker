@@ -8,7 +8,7 @@
     <% @sailors.each do |sailor| %>
     <div class="col-md-12 col-lg-6">
       <div class="card-bg" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path sailor.photo.key, responsive: :true, width: 400, crop: :fit %>')">
-        <%= link_to sailor.battle_name, sailor_path(sailor) %>
+        <%= link_to sailor.battle_name, sailor_path(sailor), class: "card-bg-content" %>
       </div>
     </div>
         <% end %>
