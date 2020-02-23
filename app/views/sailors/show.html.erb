@@ -1,0 +1,32 @@
+
+<div class="container mt-3">
+  <div class="card mb-3" style="max-width: 900px;">
+    <div class="row no-gutters">
+      <div class="col-md-6 col-lg-4">
+          <%= cl_image_tag @sailor.photo.key, height: 400, width: 300, crop: :fill, class: "Card-thumb Card-thumd--landscape pa4" %>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-body">
+          <h1 class="card-title"><%= @sailor.battle_name %></h1>
+          <p class="card-text"><%= @sailor.planet %></p>
+          <p class="card-text"><%= @sailor.name %></p>
+          <% @sailor.sailor_powers.each do |power| %>
+            <p> "<%= power.power.name %>" element: <%= power.power.element %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <div class="card-body">
+          <p class="card-text"><%= link_to 'Edit', edit_sailor_path %></h2>
+          <p class="card-text"><%= link_to 'Delete', sailor_path(@sailor), method: "delete" %></h2>
+          <p class="card-text"><%= link_to 'Add Power', new_sailor_sailor_power_path(@sailor) %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div>
+      <%= link_to 'Back', sailors_path %>
+    </div>
+  
+</div>
+

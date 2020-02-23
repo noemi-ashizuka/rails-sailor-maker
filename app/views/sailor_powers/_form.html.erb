@@ -1,0 +1,4 @@
+<%= simple_form_for [@sailor, @sailor_power] do |f| %>
+  <%= f.association :power %>
+  <%= f.submit "Add", class: "btn btn-primary" %>
+<% end %>
