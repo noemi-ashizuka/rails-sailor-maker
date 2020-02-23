@@ -1,5 +1,5 @@
 class Sailor < ApplicationRecord
-  has_many :sailor_powers
+  has_many :sailor_powers, dependent: :destroy
   has_many :powers, through: :sailor_powers
   has_one_attached :photo
 
