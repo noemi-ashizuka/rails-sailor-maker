@@ -3,7 +3,11 @@
   <div class="card card-sailor mb-3" style="max-width: 900px;">
     <div class="row no-gutters">
       <div class="col-md-6 col-lg-4">
-          <%= cl_image_tag @sailor.photo.key, height: 400, width: 300, crop: :fill, radius: 20, class: "card-sailor-img ml-2" %>
+      <% if @sailor.photo.attached? %>
+        <%= cl_image_tag @sailor.photo.key, height: 400, width: 300, crop: :fill, radius: 20, class: "card-sailor-img ml-2" %>
+      <% else %>
+        <%= image_tag 'sailor_moon.jpg', height: 400, width: 300, crop: :fill, radius: 20, class: "card-sailor-img ml-2" %>
+      <% end %>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="card-body">
