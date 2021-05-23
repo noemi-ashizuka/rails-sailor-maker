@@ -11,3 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+html {
+  height: 100%;
+}
+
+// body {
+//   min-height: 100%;
+//   display: grid;
+//   grid-template-rows: 1fr auto;
+// }

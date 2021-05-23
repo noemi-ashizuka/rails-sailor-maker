@@ -10,39 +10,11 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light nav-pink-bg">
-  <%= link_to sailors_path, class: "navbar-brand h-link" do %>
-    <h1 class="navi-title"><i class="far fa-moon s-dark-pink"></i> <span class="s-blue">Sailor Warriors</span></h1>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <%= link_to root_path do %>
-          <i class="fas fa-home navi-link"></i> Home
-        <% end %>
-      </li>
-    </ul>
-    <%= link_to new_sailor_path do %>
-      <p class="styled-link navi-link"><i class="fas fa-plus"></i> Create a Sailor Warrior </p>
-    <% end %>
-  </div>
-</nav>
-    <%= yield %>
-
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="https://en.wikipedia.org/wiki/List_of_Sailor_Moon_characters"><i class="fab fa-wikipedia-w"></i></a>
-      </div>
-      <div class="footer-copyright">
-        This website is made with <i class="fas fa-heart"></i> at Le Wagon
-      </div>
+    <%= render 'shared/navbar' %>
+    <div class="flex-wrapper">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

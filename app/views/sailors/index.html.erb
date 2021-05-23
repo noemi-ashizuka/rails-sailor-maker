@@ -1,21 +1,5 @@
 <div class="container">
   <div class="cards row">
-    <% @sailors.each do |sailor| %>
-    
-    <div class="col-md-12 col-lg-6">
-    <%= link_to sailor_path(sailor) do %>
-    <% if sailor.photo.attached? %>
-      <div class="card-bg" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path sailor.photo.key, responsive: :true, width: 400, crop: :fit %>')">
-        <p class="card-bg-content"><%= sailor.battle_name %> </p>
-      </div>
-    <% else %>
-      <div class="card-bg" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://res.cloudinary.com/dtewjoisz/image/upload/v1582382369/Tng8w78eGYPjYPMiRWPnXzHX.jpg'); width: 400px;">
-        <p class="card-bg-content"><%= sailor.battle_name %> </p>
-      </div>
-    <% end %>
-    </div>
-    <% end %>
-        <% end %>
+    <%= render 'card_small', sailors: @sailors %>
   </div>
 </div>
-
